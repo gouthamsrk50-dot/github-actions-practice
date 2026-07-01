@@ -11,6 +11,22 @@
 #       - name: Print Hello
 #         run: echo "Hello Goutham! Welcome to GitHub Actions."
 
+# name: Hello Workflow
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   hello:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Print Multiple Messages
+#         run: |
+#           echo "Hello Goutham!"
+#           echo "Learning GitHub Actions..."
+#           echo "This workflow is running on Ubuntu."
+
 name: Hello Workflow
 
 on:
@@ -21,8 +37,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Multiple Messages
-        run: |
-          echo "Hello Goutham!"
-          echo "Learning GitHub Actions..."
-          echo "This workflow is running on Ubuntu."
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Show Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la
+
+      - name: Display README
+        run: cat README.md
